@@ -24,13 +24,14 @@
  *			arguments with the third argument being DIO_u8_OUTPUT to set the pins as output.
  *			This function is likely part of a larger program that controls the behavior of the LEDs.
  *
- * \param	void
+ * \param	port_id
+ * \param   pin_id
  * \return	void
  *
  */ 
-void LED_voidLedInit(void);
-/** \brief	The function LED_voidLedOn turns on one of three LEDs based on the value of the argument copy_u8LedColour, 
- *			which can be LED_BLUE, LED_GREEN, or LED_RED.
+void LED_voidLedInit(u8 port, u8 pin);
+/** \brief	The function LED_voidLedOn turns On one of three LEDs based on the value of the arguments copy_u8PortId & copy_u8PinId, 
+ *			which can be any port and any pin but there is different cases in port E & F.
  *
  *			The function uses a switch statement to determine which LED to turn on. 
  *			When the value of copy_u8LedColour matches one of the defined LED colors, the corresponding pin is set to 
@@ -40,13 +41,14 @@ void LED_voidLedInit(void);
  *			In summary, this function is part of a larger program that controls the behavior
  *			of the LEDs and is used to turn on one of the three LEDs.
  *
- * \param	The Color of the led you want to on it
+ * \param	copy_u8PortId
+ * \param	copy_u8PinId
  * \return	void
  *
  */
-void LED_voidLedOn(u8 copy_u8LedColour);	    
-/** \brief	The function LED_voidLedOff turns off one of three LEDs based on the value of the argument copy_u8LedColour, 
- *			which can be LED_BLUE, LED_GREEN, or LED_RED.
+void LED_voidLedOn(u8 copy_u8PortId, u8 copy_u8PinId);	    
+/** \brief	The function LED_voidLedOff turns off one of three LEDs based on the value of the arguments copy_u8PortId & copy_u8PinId, 
+ *			which can be any port and any pin but there is different cases in port E & F.
  *
  *			The function uses a switch statement to determine which LED to turn off. When the value of copy_u8LedColour matches 
  * 			one of the defined LED colors, the corresponding pin is set to DIO_u8_LOW using the DIO_u8SetPinValue function, which turns off the LED. 
@@ -54,11 +56,12 @@ void LED_voidLedOn(u8 copy_u8LedColour);
  *
  *			In summary, this function is also part of a larger program that controls the behavior of the LEDs and is used to turn off one of the three LEDs.
  *
- * \param	The Color of the led you want to off it
+ * \param	copy_u8PortId
+ * \param	copy_u8PinId
  * \return  void
  *
  */
-void LED_voidLedOff(u8 copy_u8LedColour);	   
+void LED_voidLedOff(u8 copy_u8PortId, u8 copy_u8PinId);  
 /** \brief	The function LED_voidLedTog toggles the state of one of three LEDs based on the value of the argument copy_u8LedColour, which can be LED_BLUE, LED_GREEN, or LED_RED.
  *
  *			The function uses a switch statement to determine which LED to toggle. When the value of copy_u8LedColour 

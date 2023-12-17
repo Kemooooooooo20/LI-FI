@@ -95,6 +95,10 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
 					case DIO_u8_INPUT:
 						CLR_BIT(GPIO_PORTA_DIR_R,copy_u8PinId);		// Set the direction of pin to be input
 					break;
+					case DIO_u8_INPUT_PULLUP:
+						CLR_BIT(GPIO_PORTA_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+						SET_BIT(GPIO_PORTA_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
+					break;
 				}
 			break;
 			case DIO_u8_PORTB:
@@ -105,6 +109,10 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
 					break;
 					case DIO_u8_INPUT:
 						CLR_BIT(GPIO_PORTB_DIR_R,copy_u8PinId);		// Set the direction of pin to be input
+					break;
+					case DIO_u8_INPUT_PULLUP:
+						CLR_BIT(GPIO_PORTB_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+						SET_BIT(GPIO_PORTB_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
 					break;
 				}
 			break;
@@ -117,6 +125,10 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
 					case DIO_u8_INPUT:
 						CLR_BIT(GPIO_PORTC_DIR_R,copy_u8PinId);		// Set the direction of pin to be input
 					break;
+					case DIO_u8_INPUT_PULLUP:
+						CLR_BIT(GPIO_PORTC_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+						SET_BIT(GPIO_PORTC_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
+					break;
 				}
 			break;
 			case DIO_u8_PORTD:	
@@ -127,6 +139,10 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
 					break;
 					case DIO_u8_INPUT:
 						CLR_BIT(GPIO_PORTD_DIR_R,copy_u8PinId);		// Set the direction of pin to be input
+					break;
+					case DIO_u8_INPUT_PULLUP:
+						CLR_BIT(GPIO_PORTD_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+						SET_BIT(GPIO_PORTD_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
 					break;
 				}
 			break;
@@ -141,7 +157,11 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
                         case DIO_u8_INPUT:
                             CLR_BIT(GPIO_PORTE_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
                         break;
-                    }
+						case DIO_u8_INPUT_PULLUP:
+							CLR_BIT(GPIO_PORTE_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+							SET_BIT(GPIO_PORTE_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
+						break;
+						}
 			    }
 			    else
 			    {
@@ -159,6 +179,10 @@ u8 DIO_u8SetPinDirection (u8 copy_u8PortId, u8 copy_u8PinId,u8 copy_u8PinDirecti
                         case DIO_u8_LOW:
                             CLR_BIT(GPIO_PORTF_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
                         break;
+						case DIO_u8_INPUT_PULLUP:
+						CLR_BIT(GPIO_PORTF_DIR_R,copy_u8PinId);     // Set the direction of pin to be input
+						SET_BIT(GPIO_PORTF_PUR_R,copy_u8PinId);		// Set the direction of pin to be input_pullup
+						break;
                     }
 			    }
 			    else

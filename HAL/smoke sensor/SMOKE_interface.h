@@ -12,21 +12,24 @@
  *
  *			
  *
- * \param	void
+ * \param[1]	The_smoke_sensor_port_id
+ * \param[1]	The_smoke_sensor_pin_id
+ * 
  * \return  void
  *
  */
-void SMOKE_Init(void);
+void SMOKE_Init(u8 port, u8 pin);
 
 /** \brief	This is a function called get_SMOKE_status that know the status of the smoke sensor .
  *
  *			The function first calls another function get pin direction to know the pin status whether high or low then store it in status variable.
  *          
- * \param	The smoke pin
- * \return  character HIGH or LOW
+ * \param[1]	The_smoke_sensor_port_id
+ * \param[1]	The_smoke_sensor_pin_id
+ * \return  unsigned_int HIGH or LOW
  *
  */
-u8 get_smoke_status(u8 smoke_pin);
+u32 get_smoke_status(u8 port, u8 pin);
 
 
 

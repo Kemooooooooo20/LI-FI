@@ -18,14 +18,15 @@
 #include "SMOKE_interface.h"
 #include "SMOKE_config.h"
 
-void SMOKE_Init(void)
+
+void SMOKE_Init(u8 port, u8 pin)
 {
-    DIO_u8SetPinDirection(DIO_u8_PORTF, smoke_pin ,DIO_u8_INPUT);
+    DIO_u8SetPinDirection(port, pin ,DIO_u8_INPUT_PULLUP);
 }
 
-u8 get_smoke_status(u8 pin)
+u32 get_smoke_status(u8 port, u8 pin)
 {
     u32 status ;
-    DIO_u8GetPinValue(DIO_u8_PORTF, pin ,&status);
+    DIO_u8GetPinValue(port, pin ,&status);
     return status;
 }

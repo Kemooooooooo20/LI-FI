@@ -23,15 +23,17 @@
 /*#include "../APP/APP.h"*/
 /******************************< Global Variables *****************/
 f64 distance;
+u32 smoke_status;
 /******************************< main *****************************/
 int main(void)
  {
-    ULTRASONIC_Init(DIO_u8_PORTF,DIO_u8_PORTF, DIO_u8_PIN4, DIO_u8_PIN5);
+    SMOKE_Init(DIO_u8_PORTA, DIO_u8_PIN1);
+    //ULTRASONIC_Init(DIO_u8_PORTF,DIO_u8_PORTF, DIO_u8_PIN4, DIO_u8_PIN5);
     
 
     /******************************< Super loop **********************************************/
 
-    while(1)
+    /*while(1)
     {
         distance = get_ULTRASONIC_Distance(4000000);
         if (distance>0)
@@ -46,6 +48,19 @@ int main(void)
         {
             LED_voidLedOn(3);
         }        
+    }*/
+
+    smoke_status = get_smoke_status(DIO_u8_PORTA, DIO_u8_PIN1);
+    if (smoke_status == DIO_u8_HIGH)
+    {
+        //turn on the led
+        LED_voidLedInit();
+        LED_voidLedOn(DIO_u8_PIN1);
+    }
+    else
+    {
+        LED_voidLedInit();
+        LED_voidLedOff(DIO_u8_PIN1);
     }
     return 0;
 }
